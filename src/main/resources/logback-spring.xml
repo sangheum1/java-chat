@@ -1,0 +1,30 @@
+<configuration>
+
+    <!-- 🔥 파일 로그 -->
+    <appender name="DAILY_ERROR_FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <file>logs/error.log</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+
+            <!-- 하루 단위 -->
+            <fileNamePattern>logs/error.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+            <!-- 30일 보관 -->
+            <maxHistory>30</maxHistory>
+
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d %-5level %logger - %msg%n</pattern>
+        </encoder>
+
+    </appender>
+
+    <!-- 🔥 로그 레벨 -->
+    <root level="INFO">
+        <appender-ref ref="DAILY_ERROR_FILE"/>
+    </root>
+
+</configuration>
