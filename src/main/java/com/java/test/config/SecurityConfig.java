@@ -63,7 +63,13 @@ public class SecurityConfig {
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/loginProc", "/auth/refresh").permitAll()
+                        .requestMatchers(
+                                "/auth/loginProc",
+                                "/auth/refresh",
+                                "/auth/kakaoAuthUrl",
+                                "/auth/kakaoLogin",
+                                "/auth/kakaoCallback"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .exceptionHandling(ex -> ex

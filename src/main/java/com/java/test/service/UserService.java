@@ -32,4 +32,17 @@ public class UserService {
         user.setRefreshToken(null);
         userRepository.save(user);
     }
+
+    // 카카오 사용자 조회, 없으면 자동 신규 생성 (최초 카카오 로그인 = 자동 회원가입)
+    @Transactional
+    public User findOrCreateKakaoUser(String kakaoId, String nickname) {
+        return userRepository.findByProviderAndProviderId("kakao", kakaoId)
+                .orElseGet(() -> {
+                    User newUser = new User();
+                    newUser.setUsername("kakao_" + kakaoId);
+                    newUser.setProvider("kakao");
+                    newUser.setProviderId(kakaoId);
+                    return userRepository.save(newUser);
+                });
+    }
 }

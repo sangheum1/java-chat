@@ -18,6 +18,9 @@ public enum ErrorCode {
     NOT_AUTHENTICATED(HttpStatus.UNAUTHORIZED,   "NOT_AUTHENTICATED",     "인증되지 않았습니다"),
     FORBIDDEN(HttpStatus.FORBIDDEN,              "FORBIDDEN",             "접근 권한이 없습니다"),
 
+    // 소셜 로그인
+    KAKAO_AUTH_FAILED(HttpStatus.INTERNAL_SERVER_ERROR, "KAKAO_AUTH_FAILED", "카카오 로그인 처리 중 오류가 발생했습니다"),
+
     // 공통
     INVALID_INPUT(HttpStatus.BAD_REQUEST,        "INVALID_INPUT",         "잘못된 입력입니다"),
     INTERNAL_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "INTERNAL_ERROR",    "서버 오류가 발생했습니다");
