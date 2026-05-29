@@ -28,3 +28,8 @@ logging.logback.rollingpolicy.file-name-pattern=logs/error-%d{yyyy-MM-dd}.%i.log
 
 # 3. 정확히 30일 동안만 로그 파일을 보관하고, 31일째 되는 날 가장 오래된 파일을 자동으로 삭제합니다
 logging.logback.rollingpolicy.max-history=30
+
+# 카카오 OAuth2 설정
+kakao.client-id=여기에_카카오_클라이언트_ID
+kakao.client-secret=여기에_카카오_클라이언트_시크릿
+kakao.redirect-uri=http://localhost:8089/auth/kakaoCallback
